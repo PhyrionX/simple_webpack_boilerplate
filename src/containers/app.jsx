@@ -1,16 +1,52 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-export const App = props => {
+function Index() {
+  return <h2>Home</h2>;
+}
+
+const Counter = props => {
   const counter = useSelector(state => state.test.counter)
   const dispatch = useDispatch()
+  
+  return (
+  <div>
+    Hello React!! { counter }
+    <button onClick={ () => dispatch({ type: 'increment-counter'}) }>Increment</button>
+    <button onClick={ () => dispatch({ type: 'decrement-counter'}) }>Decrement</button>
+  </div>);
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}
+
+
+export const App = props => {
+
 
   return (
-    <div>
-      Hello React!! { counter }
-      <button onClick={ () => dispatch({ type: 'increment-counter'}) }>Increment</button>
-      <button onClick={ () => dispatch({ type: 'decrement-counter'}) }>Decrement</button>
-    </div>
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/counter/">About</Link>
+              </li>
+              <li>
+                <Link to="/users/">Users</Link>
+              </li>
+            </ul>
+          </nav>
+  
+          <Route path="/" exact component={Index} />
+          <Route path="/counter/" component={Counter} />
+          <Route path="/users/" component={Users} />
+        </div>
+      </Router>
   )
 }
