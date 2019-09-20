@@ -1,7 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from './containers/app';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import { App } from './containers/app';
 
 import './index.scss';
 
-ReactDOM.render(<App />, document.getElementById("index"));
+ReactDOM.render(
+  <Provider store={ store }>
+    <App />
+  </Provider>
+, document.getElementById('index'));
