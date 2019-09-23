@@ -1,3 +1,10 @@
 html, body, #index {
   height: 100%;
+  margin: 0;
+}
+
+.main {
+  margin-top: 50px; /* Add a top margin to avoid content overlay */
+  overflow: scroll;
+  height: calc(100% - 50px);
 }
