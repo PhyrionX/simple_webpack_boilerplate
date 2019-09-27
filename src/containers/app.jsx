@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { Header } from '../components/header'
+import Login from './login';
+import Signup from './signup';
 
 function Index() {
   const [count, setCount] = useState(0);
@@ -55,11 +57,28 @@ function Users() {
 
 
 export const App = props => {
-
+  const [test, setTest] = useState(3)
 
   return (
       <Router>
-        <React.Fragment>
+          {
+            true ? (
+            <Router>
+              <Route path="/" exact component={ Login }/>
+              <Route path="/signup" component={ Signup }/>
+            </Router>)
+             : (
+              <React.Fragment>
+                <Header prueba={ test } />
+                <div className="main">
+                  <button onClick={ () => setTest(test + 1) }>mmm</button>
+                    <Route path="/" exact component={Index} />
+                    <Route path="/counter/" component={Counter} />
+                    <Route path="/users/" component={Users} />        
+                </div>
+              </React.Fragment>
+            )
+          }
           {/* <nav>
             <ul>
               <li>
@@ -73,14 +92,6 @@ export const App = props => {
               </li>
             </ul>
           </nav> */}
-
-          <Header />
-          <div className="main">
-            <Route path="/" exact component={Index} />
-            <Route path="/counter/" component={Counter} />
-            <Route path="/users/" component={Users} />        
-          </div>
-        </React.Fragment>
       </Router>
   )
 }
