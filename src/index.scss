@@ -32,12 +32,11 @@ $width-login: 400px;
   display: flex;
   flex-direction: column;  /* make main axis vertical */
   justify-content: center; /* center items vertically, in this case */
-  background-color: rgba(255,255,255, .8);
-  padding: 10px 20px;
+  background-color: rgba(255,255,255, 1);
+  padding: 15px 20px;
   border-radius: 15px;
   // position: fixed;
   width: $width-login;
-  height: 200px;
   // top: calc(50% - 100px);
   // left: calc(50% - 200px);
   .tfg-buttons {

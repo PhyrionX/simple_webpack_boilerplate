@@ -19,7 +19,13 @@ export default function Signup() {
           <input type="text" className="form-control" placeholder="Username..."/>
         </div>
         <div className="form-group">
+          <input type="email" className="form-control" placeholder="email..."/>
+        </div>
+        <div className="form-group">
           <input type="text" className="form-control" placeholder="Password..."/>
+        </div>
+        <div className="form-group">
+          <input type="text" className="form-control" placeholder="Repeat Password..."/>
         </div>
         <div className="tfg-buttons">
           <button className="btn btn-primary" onClick={ (e) => e.preventDefault()}>Signup</button>

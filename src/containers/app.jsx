@@ -66,8 +66,7 @@ export const App = props => {
             <Router>
               <Route path="/" exact component={ Login }/>
               <Route path="/signup" component={ Signup }/>
-            </Router>)
-             : (
+            </Router>) : (
               <React.Fragment>
                 <Header prueba={ test } />
                 <div className="main">
@@ -79,19 +78,6 @@ export const App = props => {
               </React.Fragment>
             )
           }
-          {/* <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/counter/">About</Link>
-              </li>
-              <li>
-                <Link to="/users/">Users</Link>
-              </li>
-            </ul>
-          </nav> */}
       </Router>
   )
 }
